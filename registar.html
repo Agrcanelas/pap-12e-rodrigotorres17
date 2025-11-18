@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Registar — Escola de Canelas</title>
+  <style>
+    /* ======== BASE ======== */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #fff 0%, #ffeaea 100%);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .register-container {
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(179, 0, 0, 0.25);
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      border-top: 6px solid #b30000;
+      animation: slideUp 0.8s ease;
+    }
+
+    .register-container img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    h1 {
+      color: #b30000;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+      display: block;
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #b30000;
+      box-shadow: 0 0 5px rgba(179, 0, 0, 0.3);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 1.8rem;
+      padding: 0.9rem;
+      background-color: #b30000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d60000;
+      transform: scale(1.03);
+      box-shadow: 0 4px 10px rgba(179, 0, 0, 0.4);
+    }
+
+    .links {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .links a {
+      color: #b30000;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .links a:hover {
+      color: #d60000;
+      text-decoration: underline;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    /* ======== ANIMAÇÕES ======== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <img src="logo-escola.png" alt="Logotipo da Escola de Canelas">
+    <h1>Escola de Canelas</h1>
+    <p>Crie a sua conta de utilizador</p>
+
+    <form action="registar.php" method="post">
+      <label for="nome">Nome completo:</label>
+      <input id="nome" name="nome" type="text" placeholder="Ex: João Silva" required>
+
+      <label for="email">Email:</label>
+      <input id="email" name="email" type="email" placeholder="exemplo@escola.pt" required>
+
+      <label for="username">Utilizador:</label>
+      <input id="username" name="username" type="text" placeholder="Escolha um nome de utilizador" required>
+
+      <label for="password">Palavra-passe:</label>
+      <input id="password" name="password" type="password" placeholder="••••••••" required>
+
+      <label for="confirm">Confirmar palavra-passe:</label>
+      <input id="confirm" name="confirm" type="password" placeholder="Repita a palavra-passe" required>
+
+      <button type="submit">Criar Conta</button>
+    </form>
+
+    <div class="links">
+      <p>Já tem uma conta? <a href="index.php">Inicie sessão</a></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Escola de Canelas — Todos os direitos reservados
+  </footer>
+
+</body>
+</html>
