@@ -13,11 +13,11 @@
 Mapa interativo da Escola de Canelas, onde os utilizadores podem adicionar e visualizar marcadores com informações sobre diferentes locais da escola.
 
 ## 🎯 Objetivos Principais
-- [ ] Desenvolver um site dinâmico com base de dados
-- [ ] Implementar sistema de autenticação de utilizadores
-- [ ] Criar interface responsiva e intuitiva
-- [ ] Implementar funcionalidade CRUD completa
-- [ ] Fazer deploy da aplicação
+- [x] Desenvolver um site dinâmico com base de dados
+- [x] Implementar sistema de autenticação de utilizadores
+- [x] Criar interface responsiva e intuitiva
+- [x] Implementar funcionalidade CRUD completa
+- [x] Fazer deploy da aplicação
 
 ## 🛠️ Stack Tecnológica
 
@@ -27,18 +27,18 @@ Mapa interativo da Escola de Canelas, onde os utilizadores podem adicionar e vis
 - [ ] React/Vue.js [opcional]
 
 ### **Backend**
-- [ ] Node.js/PHP/Python [escolher um]
+- [x] PHP
 - [ ] Express/Laravel/Django [framework]
 - [ ] Autenticação JWT/Sessions
 
 ### **Base de Dados**
-- [ ] MySQL/PostgreSQL
+- [x] MySQL/PostgreSQL
 - [ ] ORM: Sequelize/Eloquent [conforme backend]
 
 ### **Outras Ferramentas**
-- [ ] Git & GitHub
+- [x] Git & GitHub
 - [ ] Docker [opcional]
-- [ ] VSCode
+- [x] VSCode
 
 ## 📁 Estrutura do Projeto
 ![Estrutura do projeto](./docs/images/estrutura.png)
