@@ -3,15 +3,14 @@
 # 🎓 PAP - [Título do Projeto]
 
 ## 👤 Informação do Aluno
-**Nome:** [Teu Nome Completo]  
-**Número:** [Número de Aluno]  
+**Nome:** Rodrigo Torres 
+**Número:** 17
 **Curso:** Profissional de Informática - Sistemas
 **Ano Letivo:** 2025/2026 
-**Orientador:** [Nome do Professor Orientador]
+**Orientador:** Prof. Patricia
 
 ## 📋 Descrição do Projeto
-[Descreve brevemente o teu projeto em 2-3 frases. Exemplo:]  
-Sistema de gestão de biblioteca online que permite aos utilizadores pesquisar livros, fazer reservas e gerir o seu perfil de leitor.
+Mapa interativo da Escola de Canelas, onde os utilizadores podem adicionar e visualizar marcadores com informações sobre diferentes locais da escola.
 
 ## 🎯 Objetivos Principais
 - [ ] Desenvolver um site dinâmico com base de dados
@@ -23,7 +22,7 @@ Sistema de gestão de biblioteca online que permite aos utilizadores pesquisar l
 ## 🛠️ Stack Tecnológica
 
 ### **Frontend**
-- [ ] HTML5, CSS3, JavaScript
+- [x ] HTML5, CSS3, JavaScript
 - [ ] Bootstrap/Tailwind CSS [ou outro framework]
 - [ ] React/Vue.js [opcional]
 
