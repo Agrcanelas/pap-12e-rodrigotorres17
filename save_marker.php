@@ -37,6 +37,7 @@ if($fp === false){
   echo json_encode(['success'=>false,'error'=>'Não foi possível abrir ficheiro']);
   exit;
 }
+
 flock($fp, LOCK_EX);
 ftruncate($fp, 0);
 rewind($fp);
