@@ -157,13 +157,14 @@
 <body>
 
   <header>
-    <img id="logo" src="logo-escola.png" alt="Logotipo da Escola de Canelas">
+    <img class="logo" src="imgs/agrcanelas.png" alt="Logotipo da Escola de Canelas">
     <h1>Escola de Canelas</h1>
     <p>Bem-vindo ao portal do mapa interativo oficial da escola</p>
   </header>
 
   <main>
-    <img class="photo" src="foto-escola.jpg" alt="Foto da Escola de Canelas">
+    <img src="imgs/agrcanelas.png" alt="Logotipo da Escola de Canelas" style="margin-left: 18px;">
+
 
     <div class="login-box">
       <h2>Iniciar Sessão</h2>
