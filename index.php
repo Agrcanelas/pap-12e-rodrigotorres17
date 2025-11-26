@@ -157,7 +157,7 @@
 <body>
 
   <header>
-    <img class="logo" src="imgs/agrcanelas.png" alt="Logotipo da Escola de Canelas">
+  <img src="imgs/biblioteca.jpg" alt="Logotipo da Escola de Canelas" width="100%">
     <h1>Escola de Canelas</h1>
     <p>Bem-vindo ao portal do mapa interativo oficial da escola</p>
   </header>
