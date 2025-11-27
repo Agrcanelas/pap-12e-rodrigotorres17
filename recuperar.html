@@ -14,10 +14,8 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-
     }
 
-    
     .recover-container {
       background: #fff;
       padding: 2.5rem;
@@ -111,11 +109,12 @@
     .message {
       margin-top: 1rem;
       padding: 0.8rem;
-      background-color: #e6f8e6;
-      color: #2d7a2d;
-      border: 1px solid #2d7a2d;
+      background-color: #fff4f4;
+      color: #b30000;
+      border: 1px solid #b30000;
       border-radius: 6px;
       display: none;
+      font-weight: 600;
     }
 
     footer {
@@ -141,19 +140,23 @@
 <body>
 
   <div class="recover-container">
-  <img src="imgs/agrcanelas2" alt="Logotipo da Escola de Canelas" width="400" height="400">
+    <img src="imgs/agrcanelas2" alt="Logotipo da Escola de Canelas">
+
     <h1>Recuperar Palavra-Passe</h1>
-    <p>Insira o seu email ou nome de utilizador para receber instruções de recuperação.</p>
+    <p>Insira o seu email ou nome de utilizador para receber instruções.</p>
 
     <form id="recover-form">
-      <label for="email">Email ou Utilizador:</label>
-      <input id="email" name="email" type="email" placeholder="exemplo@escola.pt" required>
+      <div id="form-area">
+        <label for="email">Email ou Utilizador:</label>
+        <input id="email" name="email" type="email" placeholder="exemplo@escola.pt" required>
 
-      <button type="submit">Enviar Pedido</button>
+        <button type="submit">Enviar Pedido</button>
+      </div>
     </form>
 
     <div class="message" id="confirmation-message">
-      O pedido de recuperação foi submetido com sucesso! Verifique o seu email.
+      O seu pedido foi enviado!  
+      Por favor aguarde que os administradores da escola lhe enviem um email com instruções.
     </div>
 
     <div class="links">
@@ -167,13 +170,17 @@
 
   <script>
     const form = document.getElementById('recover-form');
+    const formArea = document.getElementById('form-area');
     const message = document.getElementById('confirmation-message');
 
     form.addEventListener('submit', function(e) {
-      e.preventDefault(); // evita recarregar a página
-      // aqui podes enviar o pedido para o backend via fetch/AJAX, se quiseres
-      message.style.display = 'block'; // mostra a mensagem
-      form.reset(); // limpa o formulário
+      e.preventDefault();
+
+      // Esconde o formulário (campo + botão)
+      formArea.style.display = 'none';
+
+      // Mostra a mensagem
+      message.style.display = 'block';
     });
   </script>
 

@@ -157,7 +157,7 @@
 <body>
 
   <header>
-  <img src="imgs/biblioteca.jpg" alt="Logotipo da Escola de Canelas" width="100%">
+    <img src="imgs/biblioteca.jpg" alt="Logotipo da Escola de Canelas" width="100%">
     <h1>Escola de Canelas</h1>
     <p>Bem-vindo ao portal do mapa interativo oficial da escola</p>
   </header>
@@ -165,10 +165,11 @@
   <main>
     <img src="imgs/agrcanelas.png" alt="Logotipo da Escola de Canelas" style="margin-left: 18px;">
 
-
     <div class="login-box">
       <h2>Iniciar Sessão</h2>
-      <form action="login.php" method="post">
+
+      <!-- AGORA ENVIA PARA menuprimario.php -->
+      <form action="menuprimario.php" method="post">
         <label for="username">Utilizador:</label>
         <input id="username" name="username" type="text" required>
 
