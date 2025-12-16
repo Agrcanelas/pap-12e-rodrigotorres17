@@ -34,8 +34,8 @@ header {
 /* IMAGEM GRANDE */
 .hero {
     width: 100%;
-    height: 420px;
-    border-radius: 18px;
+    max-height: 110vh; /* altura máxima da tela */
+    border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 6px 16px rgba(0,0,0,0.25);
     margin-bottom: 30px;
@@ -43,8 +43,9 @@ header {
 
 .hero img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; /* mantém proporção original */
+    display: block;
+    border-radius: 18px;
 }
 
 /* TEXTO */
@@ -154,30 +155,32 @@ header {
         <h3>Horário da Biblioteca</h3>
         <p>
             Segunda a Sexta: 08:15 - 18:00<br>
+            Sábado: 09:00 - 13:00<br>
+            Domingo: Encerrado
         </p>
     </div>
 
     <div id="regras" class="info-section">
-    <h3>Regras da Biblioteca</h3>
-    <ul>
-        <li>Manter silêncio absoluto dentro da biblioteca. Conversas devem ser feitas em voz baixa e apenas nos espaços designados.</li>
-        <li>Desligar ou colocar no modo silencioso todos os dispositivos eletrónicos (telemóveis, tablets, relógios com som).</li>
-        <li>Não comer ou beber próximo aos livros ou equipamentos. Somente água em garrafas fechadas é permitida.</li>
-        <li>Respeitar os livros e materiais: manusear com cuidado, não dobrar páginas ou riscar textos.</li>
-        <li>Devolver todos os livros e materiais no prazo estipulado. Atrasos devem ser justificados junto do bibliotecário.</li>
-        <li>Usar computadores e recursos digitais apenas para fins educativos e de pesquisa. Jogos, redes sociais ou conteúdos pessoais não são permitidos.</li>
-        <li>Mantém os espaços limpos: lixo deve ser depositado nos cestos apropriados e mesas organizadas após uso.</li>
-        <li>Respeitar os colegas e funcionários: atos de desrespeito ou perturbação podem resultar em suspensão temporária da utilização da biblioteca.</li>
-        <li>Não remover livros ou materiais sem registo. Todos os empréstimos devem ser registados na receção da biblioteca.</li>
-        <li>Reservar salas de estudo em grupo com antecedência e respeitar o horário reservado.</li>
-        <li>Evitar movimentações bruscas que possam danificar móveis, estantes ou equipamentos.</li>
-        <li>Evitar uso de perfumes fortes ou produtos que possam incomodar outros utilizadores.</li>
-        <li>Participar em sessões de orientação sobre utilização da biblioteca e recursos digitais sempre que solicitado.</li>
-        <li>Respeitar a política de copyright e citar corretamente qualquer material utilizado em trabalhos.</li>
-        <li>Qualquer dano causado a livros, equipamentos ou instalações deve ser reportado imediatamente ao responsável da biblioteca.</li>
-        <li>Incentivar a leitura e o estudo coletivo de forma respeitosa, ajudando a manter a biblioteca como um espaço de conhecimento acessível a todos.</li>
-    </ul>
-</div>
+        <h3>Regras da Biblioteca</h3>
+        <ul>
+            <li>Manter silêncio absoluto dentro da biblioteca. Conversas devem ser feitas em voz baixa e apenas nos espaços designados.</li>
+            <li>Desligar ou colocar no modo silencioso todos os dispositivos eletrónicos (telemóveis, tablets, relógios com som).</li>
+            <li>Não comer ou beber próximo aos livros ou equipamentos. Somente água em garrafas fechadas é permitida.</li>
+            <li>Respeitar os livros e materiais: manusear com cuidado, não dobrar páginas ou riscar textos.</li>
+            <li>Devolver todos os livros e materiais no prazo estipulado. Atrasos devem ser justificados junto do bibliotecário.</li>
+            <li>Usar computadores e recursos digitais apenas para fins educativos e de pesquisa. Jogos, redes sociais ou conteúdos pessoais não são permitidos.</li>
+            <li>Mantém os espaços limpos: lixo deve ser depositado nos cestos apropriados e mesas organizadas após uso.</li>
+            <li>Respeitar os colegas e funcionários: atos de desrespeito ou perturbação podem resultar em suspensão temporária da utilização da biblioteca.</li>
+            <li>Não remover livros ou materiais sem registo. Todos os empréstimos devem ser registados na receção da biblioteca.</li>
+            <li>Reservar salas de estudo em grupo com antecedência e respeitar o horário reservado.</li>
+            <li>Evitar movimentações bruscas que possam danificar móveis, estantes ou equipamentos.</li>
+            <li>Evitar uso de perfumes fortes ou produtos que possam incomodar outros utilizadores.</li>
+            <li>Participar em sessões de orientação sobre utilização da biblioteca e recursos digitais sempre que solicitado.</li>
+            <li>Respeitar a política de copyright e citar corretamente qualquer material utilizado em trabalhos.</li>
+            <li>Qualquer dano causado a livros, equipamentos ou instalações deve ser reportado imediatamente ao responsável da biblioteca.</li>
+            <li>Incentivar a leitura e o estudo coletivo de forma respeitosa, ajudando a manter a biblioteca como um espaço de conhecimento acessível a todos.</li>
+        </ul>
+    </div>
 
     <div id="localizacao" class="info-section">
         <h3>Localização</h3>
