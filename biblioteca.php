@@ -55,6 +55,7 @@ header {
     font-size: 18px;
     line-height: 1.6;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
 }
 
 /* BOTÕES */
@@ -103,6 +104,22 @@ header {
     background: #b30000;
     color: white;
 }
+
+/* SEÇÕES INTERATIVAS */
+.info-section {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    margin-top: 20px;
+    font-size: 17px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: none; /* Escondido por padrão */
+}
+
+.info-section h3 {
+    margin-top: 0;
+    color: #b30000;
+}
 </style>
 </head>
 
@@ -126,10 +143,45 @@ header {
 
     <!-- BOTÕES INTERATIVOS -->
     <div class="buttons">
-        <button class="btn" onclick="alert('Horário da Biblioteca')">⏰ Horário</button>
-        <button class="btn" onclick="alert('Regras da Biblioteca')">📜 Regras</button>
-        <button class="btn" onclick="alert('Localização no mapa')">🗺️ Ver no mapa</button>
-        <button class="btn" onclick="alert('Contactos da Biblioteca')">📞 Contactos</button>
+        <button class="btn" onclick="showInfo('horario')">⏰ Horário</button>
+        <button class="btn" onclick="showInfo('regras')">📜 Regras</button>
+        <button class="btn" onclick="showInfo('localizacao')">🗺️ Ver no mapa</button>
+        <button class="btn" onclick="showInfo('contactos')">📞 Contactos</button>
+    </div>
+
+    <!-- SEÇÕES INTERATIVAS -->
+    <div id="horario" class="info-section">
+        <h3>Horário da Biblioteca</h3>
+        <p>
+            Segunda a Sexta: 08:30 - 18:00<br>
+        </p>
+    </div>
+
+    <div id="regras" class="info-section">
+        <h3>Regras da Biblioteca</h3>
+        <ul>
+            <li>Manter silêncio dentro da biblioteca.</li>
+            <li>Não comer ou beber próximo aos livros.</li>
+            <li>Devolver os livros no prazo correto.</li>
+            <li>Usar computadores apenas para fins educativos.</li>
+        </ul>
+    </div>
+
+    <div id="localizacao" class="info-section">
+        <h3>Localização</h3>
+        <p>Escola de Canelas, Rua Principal nº 123, Canelas, Porto.</p>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.123456789!2d-8.619!3d41.157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2464b0!2sEscola%20de%20Canelas!5e0!3m2!1spt-PT!2spt!4v1234567890" 
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+
+    <div id="contactos" class="info-section">
+        <h3>Contactos</h3>
+        <p>
+            Telefone: +351 223 456 789<br>
+            Email: biblioteca@escoladecanelas.pt
+        </p>
     </div>
 
     <!-- VOLTAR -->
@@ -140,6 +192,23 @@ header {
     </div>
 
 </div>
+
+<script>
+// Função para mostrar a seção correta
+function showInfo(sectionId) {
+    // Esconder todas as seções
+    const sections = document.querySelectorAll('.info-section');
+    sections.forEach(sec => sec.style.display = 'none');
+
+    // Mostrar a seção selecionada
+    const selected = document.getElementById(sectionId);
+    if(selected) {
+        selected.style.display = 'block';
+        // Scroll suave até a seção
+        selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+</script>
 
 </body>
 </html>
