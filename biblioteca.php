@@ -153,7 +153,7 @@ header {
     <div id="horario" class="info-section">
         <h3>Horário da Biblioteca</h3>
         <p>
-            Segunda a Sexta: 08:30 - 18:00<br>
+            Segunda a Sexta: 08:15 - 18:00<br>
         </p>
     </div>
 
