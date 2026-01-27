@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+/* Exemplo simples de utilizador
+   (normalmente vem do login) */
+if (!isset($_SESSION['utilizador'])) {
+    $_SESSION['utilizador'] = "Utilizador";
+}
+
+/* Logout */
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -12,17 +28,60 @@ body {
     background: #fff5f5;
 }
 
+/* HEADER */
 header {
     background: #b30000;
     color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
+/* Texto do header */
+.header-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Área do utilizador */
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Olá utilizador */
+.user-name {
+    background: rgba(255,255,255,0.15);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Botão logout */
+.logout-btn {
+    background: white;
+    color: #b30000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.logout-btn:hover {
+    background: #ffe5e5;
+    transform: scale(1.05);
+}
+
+/* CONTEÚDO */
 h2 {
     color: #b30000;
     text-align: center;
@@ -33,12 +92,14 @@ h2 {
     padding: 20px;
 }
 
+/* GRELHA */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 20px;
 }
 
+/* CARTÕES */
 .card {
     background: white;
     border-radius: 14px;
@@ -70,7 +131,23 @@ h2 {
 
 <body>
 
-<header>Mapa Interativo — Escola de Canelas</header>
+<header>
+    <div class="header-title">
+        Mapa Interativo — Escola de Canelas
+    </div>
+
+    <div class="user-area">
+        <div class="user-name">
+            👤 Olá, <?php echo htmlspecialchars($_SESSION['utilizador']); ?>
+        </div>
+
+        <form method="get">
+            <button type="submit" name="logout" class="logout-btn">
+                🔐 Logout
+            </button>
+        </form>
+    </div>
+</header>
 
 <div class="container">
 
