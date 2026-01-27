@@ -154,9 +154,8 @@ header {
     <div id="horario" class="info-section">
         <h3>Horário da Biblioteca</h3>
         <p>
-            Segunda a Sexta: 08:15 - 18:00<br>
-            Sábado: 09:00 - 13:00<br>
-            Domingo: Encerrado
+            Segunda a Sexta: 08:15 - 17:30<br>
+            Fins de semana: Encerrado
         </p>
     </div>
 
