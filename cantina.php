@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -19,90 +20,109 @@ header {
     color: white;
     padding: 25px;
     text-align: center;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 600;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* CONTEÚDO */
+/* CONTAINER */
 .container {
     padding: 25px;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
 }
 
 /* IMAGEM */
 .hero {
     width: 100%;
-    max-height: 110vh;
-    border-radius: 30px;
     overflow: hidden;
+    border-radius: 25px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.25);
     margin-bottom: 30px;
 }
 
 .hero img {
     width: 100%;
-    height: auto;
     display: block;
-    border-radius: 18px;
 }
 
 /* DESCRIÇÃO */
 .description {
     background: white;
     padding: 25px;
-    border-radius: 18px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.description h2 {
+    color: #b30000;
+    margin-top: 0;
+}
+
+.description p {
     font-size: 18px;
     line-height: 1.6;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    margin-bottom: 30px;
 }
 
-/* BOTÕES */
-.buttons {
-    margin-top: 30px;
+/* MENU TEMÁTICO */
+.menu-cantina {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
 }
 
-.btn {
-    background: #b30000;
-    color: white;
-    padding: 16px;
-    font-size: 18px;
-    border: none;
-    border-radius: 14px;
+.menu-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
     cursor: pointer;
-    transition: 0.25s;
+    transition: 0.3s;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    border-top: 6px solid #b30000;
 }
 
-.btn:hover {
-    background: #d60000;
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(179,0,0,0.4);
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(179,0,0,0.25);
+}
+
+.menu-card h3 {
+    color: #b30000;
+    margin: 15px 0 10px;
+    font-size: 22px;
+}
+
+.menu-card p {
+    color: #666;
+    margin: 0;
+}
+
+.emoji {
+    font-size: 55px;
 }
 
 /* SECÇÕES */
 .info-section {
     background: white;
-    padding: 20px;
-    border-radius: 14px;
-    margin-top: 20px;
-    font-size: 17px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     display: none;
 }
 
 .info-section h3 {
     color: #b30000;
+    margin-top: 0;
 }
 
 /* VOLTAR */
 .back {
-    margin-top: 35px;
     text-align: center;
+    margin-top: 40px;
 }
 
 .back button {
@@ -110,10 +130,10 @@ header {
     color: #b30000;
     border: 2px solid #b30000;
     padding: 14px 30px;
-    font-size: 18px;
     border-radius: 14px;
+    font-size: 18px;
     cursor: pointer;
-    transition: 0.25s;
+    transition: 0.3s;
 }
 
 .back button:hover {
@@ -125,28 +145,60 @@ header {
 
 <body>
 
-<header>🍽️ Cantina Escolar</header>
+<header>
+🍽️ Cantina Escolar
+</header>
 
 <div class="container">
 
     <div class="hero">
-        <img src="imgs/cantinafoto.jpg" alt="Cantina da Escola de Canelas">
+        <img src="imgs/cantinafoto.jpg" alt="Cantina Escolar">
     </div>
 
     <div class="description">
-        A cantina da Escola de Canelas disponibiliza refeições equilibradas e variadas para toda a comunidade escolar.
-        O espaço foi concebido para proporcionar conforto e qualidade durante as refeições dos alunos, professores e funcionários.
+        <h2>Bem-vindo à Cantina Escolar</h2>
+
+        <p>
+            A cantina da Escola de Canelas oferece refeições equilibradas,
+            saudáveis e preparadas diariamente para toda a comunidade escolar.
+        </p>
+
+        <p>
+            Consulta os horários, ementas, preços e contactos através dos painéis abaixo.
+        </p>
     </div>
 
-    <div class="buttons">
-        <button class="btn" onclick="showInfo('horario')">⏰ Horário</button>
-        <button class="btn" onclick="showInfo('ementa')">📋 Ementa</button>
-        <button class="btn" onclick="showInfo('precos')">💰 Preços</button>
-        <button class="btn" onclick="showInfo('contactos')">📞 Contactos</button>
+    <div class="menu-cantina">
+
+        <div class="menu-card" onclick="showInfo('horario')">
+            <div class="emoji">⏰</div>
+            <h3>Horários</h3>
+            <p>Consulta os horários de funcionamento.</p>
+        </div>
+
+        <div class="menu-card" onclick="showInfo('ementa')">
+            <div class="emoji">🍲</div>
+            <h3>Ementa</h3>
+            <p>Descobre os pratos da semana.</p>
+        </div>
+
+        <div class="menu-card" onclick="showInfo('precos')">
+            <div class="emoji">💰</div>
+            <h3>Preçário</h3>
+            <p>Consulta os preços das refeições.</p>
+        </div>
+
+        <div class="menu-card" onclick="showInfo('contactos')">
+            <div class="emoji">📞</div>
+            <h3>Contactos</h3>
+            <p>Informações úteis da cantina.</p>
+        </div>
+
     </div>
 
     <div id="horario" class="info-section">
-        <h3>Horário de Funcionamento</h3>
+        <h3>⏰ Horário de Funcionamento</h3>
+
         <p>
             Pequeno-almoço: 08:00 - 10:00<br>
             Almoço: 12:00 - 14:30<br>
@@ -155,7 +207,7 @@ header {
     </div>
 
     <div id="ementa" class="info-section">
-        <h3>Ementa da Semana</h3>
+        <h3>🍲 Ementa da Semana</h3>
 
         <p><strong>Segunda-feira</strong><br>
         Sopa de legumes<br>
@@ -184,18 +236,20 @@ header {
     </div>
 
     <div id="precos" class="info-section">
-        <h3>Preços</h3>
+        <h3>💰 Preçário</h3>
+
         <ul>
-            <li>Refeição completa (Aluno): 1,46€</li>
-            <li>Refeição completa (Professor): 4,20€</li>
+            <li>Refeição Completa (Aluno): 1,46€</li>
+            <li>Refeição Completa (Professor): 4,20€</li>
             <li>Sopa: 0,50€</li>
-            <li>Sobremesa extra: 0,60€</li>
+            <li>Sobremesa Extra: 0,60€</li>
             <li>Água: 0,50€</li>
         </ul>
     </div>
 
     <div id="contactos" class="info-section">
-        <h3>Contactos</h3>
+        <h3>📞 Contactos</h3>
+
         <p>
             Telefone: +351 227 000 000<br>
             Email: cantina@aecan.pt
@@ -204,7 +258,7 @@ header {
 
     <div class="back">
         <button onclick="location.href='menuprimario.php'">
-            ⬅ Voltar ao menu
+            ⬅ Voltar ao Menu
         </button>
     </div>
 
@@ -215,14 +269,15 @@ function showInfo(sectionId) {
 
     const sections = document.querySelectorAll('.info-section');
 
-    sections.forEach(sec => {
-        sec.style.display = 'none';
+    sections.forEach(section => {
+        section.style.display = 'none';
     });
 
     const selected = document.getElementById(sectionId);
 
     if(selected){
         selected.style.display = 'block';
+
         selected.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
@@ -233,3 +288,4 @@ function showInfo(sectionId) {
 
 </body>
 </html>
+```
