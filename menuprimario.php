@@ -1,10 +1,14 @@
 <?php
 session_start();
 
-/* Exemplo simples de utilizador
-   (normalmente vem do login) */
+/* Utilizador base */
 if (!isset($_SESSION['utilizador'])) {
     $_SESSION['utilizador'] = "Utilizador";
+}
+
+/* Tipo de utilizador (admin ou user) */
+if (!isset($_SESSION['tipo'])) {
+    $_SESSION['tipo'] = "utilizador";
 }
 
 /* Logout */
@@ -14,6 +18,7 @@ if (isset($_GET['logout'])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -41,35 +46,71 @@ header {
     z-index: 100;
 }
 
-/* Texto do header */
+/* título */
 .header-title {
     font-size: 24px;
     font-weight: 600;
 }
 
-/* Área do utilizador */
+/* área utilizador */
 .user-area {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-/* Olá utilizador */
+/* olá utilizador */
 .user-name {
     background: rgba(255,255,255,0.15);
     padding: 8px 14px;
-    border-radius: 20px;
+    border-radius: 25px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-/* Botão logout */
+/* botão perfil */
+.profile-btn{
+    text-decoration:none;
+    background:white;
+    color:#b30000;
+    padding:8px 14px;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+    box-shadow:0 3px 8px rgba(0,0,0,.12);
+}
+
+.profile-btn:hover{
+    background:#ffe5e5;
+    transform:translateY(-2px);
+}
+
+/* admin */
+.admin-btn{
+    text-decoration:none;
+    background:linear-gradient(135deg,#ffd700,#ffea61);
+    color:#7a0000;
+    padding:8px 14px;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+
+.admin-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* logout */
 .logout-btn {
     background: white;
     color: #b30000;
     border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 8px 14px;
+    border-radius: 25px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -132,21 +173,35 @@ h2 {
 <body>
 
 <header>
+
     <div class="header-title">
-        Mapa Interativo — Escola de Canelas
+        🏫 Mapa Interativo — Escola de Canelas
     </div>
 
     <div class="user-area">
+
         <div class="user-name">
             👤 Olá, <?php echo htmlspecialchars($_SESSION['utilizador']); ?>
         </div>
 
-        <form method="get">
+        <a href="perfil.php" class="profile-btn">
+            ⚙️ Perfil
+        </a>
+
+        <?php if($_SESSION['tipo'] === "admin"): ?>
+            <a href="admin.php" class="admin-btn">
+                👑 Admin
+            </a>
+        <?php endif; ?>
+
+        <form method="get" style="margin:0;">
             <button type="submit" name="logout" class="logout-btn">
                 🔐 Logout
             </button>
         </form>
+
     </div>
+
 </header>
 
 <div class="container">
@@ -210,4 +265,3 @@ h2 {
 
 </body>
 </html>
- 
