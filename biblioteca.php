@@ -1,228 +1,345 @@
+```html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biblioteca — Escola de Canelas</title>
+<title>Biblioteca Escolar — Escola de Canelas</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Poppins, Arial, sans-serif;
-    background: #fff5f5;
-    color: #333;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', 'Segoe UI', sans-serif;
+    background:#fff5f5;
+    color:#333;
 }
 
 /* HEADER */
-header {
-    background: #b30000;
-    color: white;
-    padding: 25px;
-    text-align: center;
-    font-size: 26px;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+header{
+    background:#b30000;
+    color:white;
+    padding:25px;
+    text-align:center;
+    font-size:30px;
+    font-weight:700;
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
 
-/* CONTEÚDO */
-.container {
-    padding: 25px;
-    max-width: 1100px;
-    margin: auto;
+/* CONTAINER */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:25px;
 }
 
-/* IMAGEM GRANDE */
-.hero {
-    width: 100%;
-    max-height: 110vh; /* altura máxima da tela */
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-    margin-bottom: 30px;
+/* IMAGEM */
+
+.hero{
+    overflow:hidden;
+    border-radius:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    margin-bottom:30px;
 }
 
-.hero img {
-    width: 100%;
-    height: auto; /* mantém proporção original */
-    display: block;
-    border-radius: 18px;
+.hero img{
+    width:100%;
+    height:auto;
+    display:block;
 }
 
-/* TEXTO */
-.description {
-    background: white;
-    padding: 25px;
-    border-radius: 18px;
-    font-size: 18px;
-    line-height: 1.6;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    margin-bottom: 30px;
+/* DESCRIÇÃO */
+
+.description{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    margin-bottom:35px;
 }
 
-/* BOTÕES */
-.buttons {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+.description h2{
+    color:#b30000;
+    font-size:32px;
+    margin-bottom:15px;
 }
 
-.btn {
-    background: #b30000;
-    color: white;
-    padding: 16px;
-    font-size: 18px;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: 0.25s;
+.description p{
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
 }
 
-.btn:hover {
-    background: #d60000;
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(179,0,0,0.4);
+/* CARDS */
+
+.menu-biblioteca{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
 }
 
-/* BOTÃO VOLTAR */
-.back {
-    margin-top: 35px;
-    text-align: center;
+.card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+    border-top:6px solid #b30000;
+    box-shadow:0 6px 16px rgba(0,0,0,.12);
 }
 
-.back button {
-    background: transparent;
-    color: #b30000;
-    border: 2px solid #b30000;
-    padding: 14px 30px;
-    font-size: 18px;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: 0.25s;
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 25px rgba(179,0,0,.25);
 }
 
-.back button:hover {
-    background: #b30000;
-    color: white;
+.emoji{
+    font-size:55px;
 }
 
-/* SEÇÕES INTERATIVAS */
-.info-section {
-    background: white;
-    padding: 20px;
-    border-radius: 14px;
-    margin-top: 20px;
-    font-size: 17px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: none; /* Escondido por padrão */
+.card h3{
+    margin:15px 0 10px;
+    color:#b30000;
+    font-size:24px;
 }
 
-.info-section h3 {
-    margin-top: 0;
-    color: #b30000;
+.card p{
+    color:#666;
+    font-size:16px;
+}
+
+/* SECÇÕES */
+
+.info-section{
+    display:none;
+    background:white;
+    margin-top:25px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    animation:fade .3s ease;
+}
+
+.info-section h3{
+    color:#b30000;
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.info-section ul{
+    padding-left:20px;
+    line-height:1.9;
+}
+
+.info-section p{
+    line-height:1.8;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* VOLTAR */
+
+.back{
+    text-align:center;
+    margin-top:40px;
+}
+
+.back button{
+    background:transparent;
+    color:#b30000;
+    border:2px solid #b30000;
+    padding:14px 30px;
+    font-size:18px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.back button:hover{
+    background:#b30000;
+    color:white;
 }
 </style>
 </head>
 
 <body>
 
-<header>📚 Biblioteca Escolar</header>
+<header>
+📚 Biblioteca Escolar
+</header>
 
 <div class="container">
 
-    <!-- IMAGEM GRANDE -->
     <div class="hero">
-        <img src="imgs/bibliotecafoto.jpg" alt="Biblioteca da Escola de Canelas">
+        <img src="imgs/bibliotecafoto.jpg" alt="Biblioteca Escolar">
     </div>
 
-    <!-- DESCRIÇÃO -->
     <div class="description">
-        A biblioteca é um espaço dedicado ao estudo, leitura e trabalho em grupo.
-        Aqui podes consultar livros, usar computadores e preparar trabalhos escolares
-        num ambiente calmo e organizado.
-    </div>
 
-    <!-- BOTÕES INTERATIVOS -->
-    <div class="buttons">
-        <button class="btn" onclick="showInfo('horario')">⏰ Horário</button>
-        <button class="btn" onclick="showInfo('regras')">📜 Regras</button>
-        <button class="btn" onclick="showInfo('localizacao')">🗺️ Ver no mapa</button>
-        <button class="btn" onclick="showInfo('contactos')">📞 Contactos</button>
-    </div>
+        <h2>Bem-vindo à Biblioteca Escolar</h2>
 
-    <!-- SEÇÕES INTERATIVAS -->
-    <div id="horario" class="info-section">
-        <h3>Horário da Biblioteca</h3>
         <p>
-            Segunda a Sexta: 08:15 - 17:30<br>
-            Fins de semana: Encerrado
+            A Biblioteca Escolar é um espaço dedicado ao conhecimento,
+            à leitura, à pesquisa e ao desenvolvimento académico dos alunos.
+            Aqui podes requisitar livros, utilizar computadores, estudar
+            individualmente ou em grupo e participar em diversas atividades
+            educativas num ambiente tranquilo, moderno e acolhedor.
         </p>
+
+    </div>
+
+    <div class="menu-biblioteca">
+
+        <div class="card" onclick="showInfo('horario')">
+            <div class="emoji">⏰</div>
+            <h3>Horário</h3>
+            <p>Consulta o horário de funcionamento.</p>
+        </div>
+
+        <div class="card" onclick="showInfo('regras')">
+            <div class="emoji">📜</div>
+            <h3>Regras</h3>
+            <p>Normas de utilização da biblioteca.</p>
+        </div>
+
+        <div class="card" onclick="showInfo('localizacao')">
+            <div class="emoji">🗺️</div>
+            <h3>Localização</h3>
+            <p>Onde encontrar a biblioteca.</p>
+        </div>
+
+        <div class="card" onclick="showInfo('contactos')">
+            <div class="emoji">📞</div>
+            <h3>Contactos</h3>
+            <p>Informações para contacto.</p>
+        </div>
+
+    </div>
+
+    <div id="horario" class="info-section">
+
+        <h3>⏰ Horário da Biblioteca</h3>
+
+        <p>
+            Segunda a Sexta-feira: 08:15 às 17:30<br>
+            Sábado e Domingo: Encerrado
+        </p>
+
     </div>
 
     <div id="regras" class="info-section">
-        <h3>Regras da Biblioteca</h3>
+
+        <h3>📜 Regras da Biblioteca</h3>
+
         <ul>
-            <li>Manter silêncio absoluto dentro da biblioteca. Conversas devem ser feitas em voz baixa e apenas nos espaços designados.</li>
-            <li>Desligar ou colocar no modo silencioso todos os dispositivos eletrónicos (telemóveis, tablets, relógios com som).</li>
-            <li>Não comer ou beber próximo aos livros ou equipamentos. Somente água em garrafas fechadas é permitida.</li>
-            <li>Respeitar os livros e materiais: manusear com cuidado, não dobrar páginas ou riscar textos.</li>
-            <li>Devolver todos os livros e materiais no prazo estipulado. Atrasos devem ser justificados junto do bibliotecário.</li>
-            <li>Usar computadores e recursos digitais apenas para fins educativos e de pesquisa. Jogos, redes sociais ou conteúdos pessoais não são permitidos.</li>
-            <li>Mantém os espaços limpos: lixo deve ser depositado nos cestos apropriados e mesas organizadas após uso.</li>
-            <li>Respeitar os colegas e funcionários: atos de desrespeito ou perturbação podem resultar em suspensão temporária da utilização da biblioteca.</li>
-            <li>Não remover livros ou materiais sem registo. Todos os empréstimos devem ser registados na receção da biblioteca.</li>
-            <li>Reservar salas de estudo em grupo com antecedência e respeitar o horário reservado.</li>
-            <li>Evitar movimentações bruscas que possam danificar móveis, estantes ou equipamentos.</li>
-            <li>Evitar uso de perfumes fortes ou produtos que possam incomodar outros utilizadores.</li>
-            <li>Participar em sessões de orientação sobre utilização da biblioteca e recursos digitais sempre que solicitado.</li>
-            <li>Respeitar a política de copyright e citar corretamente qualquer material utilizado em trabalhos.</li>
-            <li>Qualquer dano causado a livros, equipamentos ou instalações deve ser reportado imediatamente ao responsável da biblioteca.</li>
-            <li>Incentivar a leitura e o estudo coletivo de forma respeitosa, ajudando a manter a biblioteca como um espaço de conhecimento acessível a todos.</li>
+            <li>Manter silêncio e um ambiente adequado ao estudo.</li>
+            <li>Telemóveis devem permanecer em modo silencioso.</li>
+            <li>É proibido comer junto dos livros ou equipamentos.</li>
+            <li>Manusear livros e materiais com cuidado.</li>
+            <li>Não dobrar páginas nem escrever nos livros.</li>
+            <li>Respeitar os prazos de devolução dos empréstimos.</li>
+            <li>Os computadores destinam-se apenas a fins educativos.</li>
+            <li>Manter as mesas limpas e organizadas.</li>
+            <li>Depositar resíduos nos recipientes apropriados.</li>
+            <li>Não deslocar mobiliário sem autorização.</li>
+            <li>Respeitar colegas, funcionários e professores.</li>
+            <li>Reservar espaços de estudo antecipadamente quando necessário.</li>
+            <li>Não retirar materiais sem registo de empréstimo.</li>
+            <li>Comunicar imediatamente qualquer dano observado.</li>
+            <li>Utilizar linguagem adequada dentro das instalações.</li>
+            <li>Não correr nem provocar ruído excessivo.</li>
+            <li>Proteger os equipamentos informáticos da biblioteca.</li>
+            <li>Citar corretamente fontes utilizadas em trabalhos escolares.</li>
+            <li>Participar de forma responsável nas atividades promovidas.</li>
+            <li>Contribuir para que a biblioteca seja um espaço agradável para todos.</li>
         </ul>
+
     </div>
 
     <div id="localizacao" class="info-section">
-        <h3>Localização</h3>
-        <p>R. Delfim Lima Apartado 512, 4411-701 Vila Nova de Gaia.</p>
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.123456789!2d-8.619!3d41.157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2464b0!2sEscola%20de%20Canelas!5e0!3m2!1spt-PT!2spt!4v1234567890" 
-            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+
+        <h3>🗺️ Localização</h3>
+
+        <p>
+            Rua Delfim Lima, Apartado 512<br>
+            4411-701 Vila Nova de Gaia
+        </p>
+
+        <br>
+
+        <iframe
+            width="100%"
+            height="350"
+            style="border:0;border-radius:15px;"
+            loading="lazy"
+            allowfullscreen
+            src="https://maps.google.com/maps?q=Escola%20Secundaria%20de%20Canelas&t=&z=15&ie=UTF8&iwloc=&output=embed">
         </iframe>
+
     </div>
 
     <div id="contactos" class="info-section">
-        <h3>Contactos</h3>
+
+        <h3>📞 Contactos</h3>
+
         <p>
             Telefone: +351 223 456 789<br>
             Email: biblioteca@escoladecanelas.pt
         </p>
+
     </div>
 
-    <!-- VOLTAR -->
     <div class="back">
         <button onclick="location.href='menuprimario.php'">
-            ⬅ Voltar ao menu
+            ⬅ Voltar ao Menu
         </button>
     </div>
 
 </div>
 
 <script>
-// Função para mostrar a seção correta
-function showInfo(sectionId) {
-    // Esconder todas as seções
-    const sections = document.querySelectorAll('.info-section');
-    sections.forEach(sec => sec.style.display = 'none');
 
-    // Mostrar a seção selecionada
-    const selected = document.getElementById(sectionId);
-    if(selected) {
-        selected.style.display = 'block';
-        // Scroll suave até a seção
-        selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
+function showInfo(sectionId){
+
+    const sections=document.querySelectorAll('.info-section');
+
+    sections.forEach(section=>{
+        section.style.display='none';
+    });
+
+    const selected=document.getElementById(sectionId);
+
+    if(selected){
+
+        selected.style.display='block';
+
+        selected.scrollIntoView({
+            behavior:'smooth',
+            block:'start'
+        });
+
     }
 }
+
 </script>
 
 </body>
 </html>
+```
