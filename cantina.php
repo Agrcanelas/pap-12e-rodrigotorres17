@@ -240,10 +240,16 @@ header {
 
         <ul>
             <li>Refeição Completa (Aluno): 1,46€</li>
+            <li>Refeição Vegetariana (Aluno): 1,68€</li>
             <li>Refeição Completa (Professor): 4,20€</li>
-            <li>Sopa: 0,50€</li>
-            <li>Sobremesa Extra: 0,60€</li>
-            <li>Água: 0,50€</li>
+            <li>Refeição Vegetariana (Professor): 4,80€</li>
+            <li>Extras:</li>
+            <ul>
+                <li>Salada: 0,40€</li>
+                <li>Sobremesa Extra: 0,90€</li>
+                <li>Sumo de Fruta: 0,30€</li>
+
+
         </ul>
     </div>
 
