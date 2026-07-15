@@ -1,265 +1,139 @@
 <?php
 session_start();
 
-/* Utilizador base */
-if (!isset($_SESSION['utilizador'])) {
-    $_SESSION['utilizador'] = "Utilizador";
-}
+if (!isset($_SESSION['utilizador'])) $_SESSION['utilizador'] = "Utilizador";
+if (!isset($_SESSION['tipo'])) $_SESSION['tipo'] = "utilizador";
 
-/* Tipo de utilizador (admin ou user) */
-if (!isset($_SESSION['tipo'])) {
-    $_SESSION['tipo'] = "utilizador";
-}
-
-/* Logout */
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: index.php");
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mapa Interativo — Escola de Canelas</title>
-
+<title>Mapa Interativo - Escola de Canelas</title>
 <style>
-body {
-    margin: 0;
-    font-family: Poppins, Arial, sans-serif;
-    background: #fff5f5;
+body{margin:0;font-family:Poppins,Arial,sans-serif;background:#fff5f5;}
+header{
+background:#b30000;color:white;padding:15px 25px;
+display:flex;justify-content:space-between;align-items:center;
+position:sticky;top:0;z-index:1000;
+}
+.header-title{font-size:24px;font-weight:700;}
+.user-area{display:flex;gap:10px;align-items:center;}
+.user-area a,.logout-btn,.user-name{
+padding:10px 16px;border-radius:25px;text-decoration:none;border:none;
+font-weight:600;
+}
+.user-name{background:rgba(255,255,255,.15);color:white;}
+.profile-btn{background:white;color:#b30000;}
+.admin-btn{background:gold;color:#7a0000;}
+.logout-btn{background:white;color:#b30000;cursor:pointer;}
+
+.mapa-container{
+max-width:1400px;
+margin:20px auto;
+position:relative;
+padding:10px;
 }
 
-/* HEADER */
-header {
-    background: #b30000;
-    color: white;
-    padding: 18px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+.mapa{
+width:100%;
+display:block;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
 
-/* título */
-.header-title {
-    font-size: 24px;
-    font-weight: 600;
+.hotspot{
+position:absolute;
+border-radius:12px;
+transition:.25s;
 }
 
-/* área utilizador */
-.user-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+.hotspot:hover{
+background:rgba(255,0,0,.25);
+border:2px solid #b30000;
 }
 
-/* olá utilizador */
-.user-name {
-    background: rgba(255,255,255,0.15);
-    padding: 8px 14px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 600;
+.label{
+opacity:0;
+position:absolute;
+top:-30px;
+left:50%;
+transform:translateX(-50%);
+background:#b30000;
+color:white;
+padding:5px 10px;
+border-radius:8px;
+font-size:13px;
+white-space:nowrap;
 }
 
-/* botão perfil */
-.profile-btn{
-    text-decoration:none;
-    background:white;
-    color:#b30000;
-    padding:8px 14px;
-    border-radius:25px;
-    font-size:14px;
-    font-weight:600;
-    transition:.25s;
-    box-shadow:0 3px 8px rgba(0,0,0,.12);
-}
-
-.profile-btn:hover{
-    background:#ffe5e5;
-    transform:translateY(-2px);
-}
-
-/* admin */
-.admin-btn{
-    text-decoration:none;
-    background:linear-gradient(135deg,#ffd700,#ffea61);
-    color:#7a0000;
-    padding:8px 14px;
-    border-radius:25px;
-    font-size:14px;
-    font-weight:700;
-    transition:.25s;
-    box-shadow:0 3px 8px rgba(0,0,0,.15);
-}
-
-.admin-btn:hover{
-    transform:translateY(-2px);
-}
-
-/* logout */
-.logout-btn {
-    background: white;
-    color: #b30000;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.logout-btn:hover {
-    background: #ffe5e5;
-    transform: scale(1.05);
-}
-
-/* CONTEÚDO */
-h2 {
-    color: #b30000;
-    text-align: center;
-    margin-top: 30px;
-}
-
-.container {
-    padding: 20px;
-}
-
-/* GRELHA */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 20px;
-}
-
-/* CARTÕES */
-.card {
-    background: white;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.card:hover {
-    transform: scale(1.04);
-}
-
-.card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.card-title {
-    padding: 15px;
-    text-align: center;
-    font-size: 18px;
-    color: #b30000;
-    font-weight: 600;
-}
+.hotspot:hover .label{opacity:1;}
 </style>
 </head>
-
 <body>
 
 <header>
+<div class="header-title">🏫 Escola de Canelas</div>
 
-    <div class="header-title">
-        🏫 Mapa Interativo — Escola de Canelas
-    </div>
+<div class="user-area">
+<div class="user-name">👤 Olá, <?php echo htmlspecialchars($_SESSION['utilizador']); ?></div>
 
-    <div class="user-area">
+<a href="perfil.php" class="profile-btn">⚙ Perfil</a>
 
-        <div class="user-name">
-            👤 Olá, <?php echo htmlspecialchars($_SESSION['utilizador']); ?>
-        </div>
+<?php if($_SESSION['tipo']=="admin"): ?>
+<a href="admin.php" class="admin-btn">👑 Admin</a>
+<?php endif; ?>
 
-        <a href="perfil.php" class="profile-btn">
-            ⚙️ Perfil
-        </a>
-
-        <?php if($_SESSION['tipo'] === "admin"): ?>
-            <a href="admin.php" class="admin-btn">
-                👑 Admin
-            </a>
-        <?php endif; ?>
-
-        <form method="get" style="margin:0;">
-            <button type="submit" name="logout" class="logout-btn">
-                🔐 Logout
-            </button>
-        </form>
-
-    </div>
-
+<form method="get">
+<button class="logout-btn" name="logout">🔐 Logout</button>
+</form>
+</div>
 </header>
 
-<div class="container">
+<div class="mapa-container">
 
-<h2>Destinos</h2>
-<div class="grid">
+<img src="imgs/planta_editada.png" class="mapa">
 
-<div class="card" onclick="location.href='biblioteca.php'">
-    <img src="imgs/biblioteca.jpg">
-    <div class="card-title">Biblioteca</div>
-</div>
+<!-- Biblioteca -->
+<a href="biblioteca.php" class="hotspot" style="left:57%;top:18%;width:12%;height:10%;">
+<div class="label">Biblioteca</div>
+</a>
 
-<div class="card" onclick="location.href='cantina.php'">
-    <img src="imgs/cantina.jpg">
-    <div class="card-title">Cantina</div>
-</div>
+<!-- Bloco G -->
+<a href="blocos/blocoG.php" class="hotspot" style="left:48%;top:28%;width:13%;height:13%;">
+<div class="label">Bloco G</div>
+</a>
 
-<div class="card" onclick="location.href='radio.php'">
-    <img src="imgs/radio.jpg">
-    <div class="card-title">Rádio</div>
-</div>
+<!-- Cantina -->
+<a href="cantina.php" class="hotspot" style="left:70%;top:18%;width:12%;height:10%;">
+<div class="label">Cantina</div>
+</a>
 
-<div class="card" onclick="location.href='bar.php'">
-    <img src="imgs/bar.jpg">
-    <div class="card-title">Bar de Alunos</div>
-</div>
+<!-- Bloco F -->
+<a href="blocos/blocoF.php" class="hotspot" style="left:40%;top:38%;width:18%;height:20%;">
+<div class="label">Bloco F</div>
+</a>
 
-<div class="card" onclick="location.href='pavilhao.php'">
-    <img src="imgs/pavilhao.jpg">
-    <div class="card-title">Pavilhão</div>
-</div>
+<!-- Bloco B -->
+<a href="blocos/blocoB.php" class="hotspot" style="left:60%;top:45%;width:15%;height:13%;">
+<div class="label">Bloco B</div>
+</a>
 
-</div>
+<!-- Bloco A -->
+<a href="blocos/blocoA.php" class="hotspot" style="left:60%;top:62%;width:15%;height:12%;">
+<div class="label">Bloco A</div>
+</a>
 
-<h2>Blocos</h2>
-<div class="grid">
-
-<div class="card" onclick="location.href='blocos/blocoA.php'">
-    <img src="imgs/blocoA.jpg">
-    <div class="card-title">Bloco A</div>
-</div>
-
-<div class="card" onclick="location.href='blocos/blocoB.php'">
-    <img src="imgs/blocoB.jpg">
-    <div class="card-title">Bloco B</div>
-</div>
-
-<div class="card" onclick="location.href='blocos/blocoF.php'">
-    <img src="imgs/blocoF.jpg">
-    <div class="card-title">Bloco F</div>
-</div>
-
-<div class="card" onclick="location.href='blocos/blocoG.php'">
-    <img src="imgs/blocoG.jpg">
-    <div class="card-title">Bloco G</div>
-</div>
-
-</div>
+<!-- Pavilhão -->
+<a href="pavilhao.php" class="hotspot" style="left:48%;top:78%;width:24%;height:12%;">
+<div class="label">Pavilhão</div>
+</a>
 
 </div>
 
